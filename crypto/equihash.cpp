@@ -18,10 +18,14 @@
 #include "config/bitcoin-config.h"
 #endif
 
+#include "crypto/common.h"
 #include "crypto/equihash.h"
 
 #ifndef NO_UTIL_LOG
 #include "../util.h"
+namespace BCLog {
+static const char* POW = "pow";
+}
 #else
 #define LogPrint(...)
 #endif
@@ -41,9 +45,9 @@ int Equihash<N,K>::InitialiseState(eh_HashState& base_state, bool btg_salt)
     uint32_t le_K = htole32(K);
     unsigned char personalization[crypto_generichash_blake2b_PERSONALBYTES] = {};
     if (btg_salt) {
-        memcpy(personalization, "ZcashPoW", 8);
-    } else {
         memcpy(personalization, "BgoldPoW", 8);
+    } else {
+        memcpy(personalization, "ZcashPoW", 8);
     }
     memcpy(personalization+8,  &le_N, 4);
     memcpy(personalization+12, &le_K, 4);
