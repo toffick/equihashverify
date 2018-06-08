@@ -24,8 +24,8 @@ describe('equihashverify', function() {
         const header = Buffer('0400000008e9694cc2120ec1b5733cc12687b609058eec4f7046a521ad1d1e3049b400003e7420ed6f40659de0305ef9b7ec037f4380ed9848bc1c015691c90aa16ff3930000000000000000000000000000000000000000000000000000000000000000c9310d5874e0001f000000000000000000000000000000010b000000000000000000000000000040', 'hex');
         var solnRaw = '';
         
-        for (var i = 0; i < 2688; i++) {
-            solnRaw += '0';
+        for (var i = 0; i < 100; i++) {
+            solnRaw += '00';
         };
         var solnBuffer = Buffer(solnRaw, 'hex');
         
@@ -43,8 +43,7 @@ describe('equihashverify', function() {
         var solnRaw = '';
         listNumeric.forEach(num => {
                 solnRaw = '';
-                for (var i = 0; i < 2688; i++) {
-        
+                for (var i = 0; i < 200; i++) {
                         solnRaw += num;
                 };      
                 var solnBuffer = Buffer(solnRaw, 'hex');
@@ -61,8 +60,7 @@ describe('equihashverify', function() {
         
         listAlpha.forEach(letter => {
             solnRaw = '';
-            for (var i = 0; i < 2688; i++) {
-    
+            for (var i = 0; i < 200; i++) {
                     solnRaw += letter;
             };      
             var solnBuffer = Buffer(solnRaw, 'hex');
