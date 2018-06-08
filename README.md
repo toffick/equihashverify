@@ -1,5 +1,5 @@
-# Equihash - Zcash Implementation
-nodejs native binding to check for valid Equihash solutions
+# Equihash - Bitcoin Gold Implementation
+nodejs native binding to check for valid Equihash-BTG (144, 5) solutions
 
 # Dependencies
 ````
@@ -11,7 +11,7 @@ sudo apt-get install build-essential libsodium-dev libboost-system-dev
 var ev = require('bindings')('equihashverify.node');
 
 var header = new Buffer(..., 'hex');
-var solution = new Buffer(..., 'hex'); //do not include byte size preamble "fd4005"
+var solution = new Buffer(..., 'hex'); //do not include byte size preamble
 
 ev.verify(header, solution);
 //returns boolean
@@ -22,4 +22,3 @@ sudo npm install -g mocha
 npm install
 mocha
 ````
-
