@@ -1,5 +1,5 @@
 {
-  "name": "equihashverify",
+  "name": "equihashverify-btg",
   "version": "0.0.2",
   "description": "function to check whether an Equihash solution is valid",
   "main": "equihashverify",
